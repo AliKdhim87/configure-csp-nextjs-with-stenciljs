@@ -1,6 +1,8 @@
+// @ts-check
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
+
   const nonce = Buffer.from(crypto.randomUUID()).toString("base64");
   const cspHeader = `
     default-src 'self';

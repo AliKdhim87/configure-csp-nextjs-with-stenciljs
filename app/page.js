@@ -1,8 +1,14 @@
 import { headers } from "next/headers";
-import Script from "next/script";
+
+import { UtrechtIconChevronUp } from "../components";
+
+import React from "react";
 
 export default function Page() {
-  const nonce = headers().get("x-nonce");
+  const nonce = headers().get("x-nonce") || '';
 
-  return <Script src="https://..." strategy="afterInteractive" nonce={nonce} />;
+  return <body suppressHydrationWarning={true}>
+    <UtrechtIconChevronUp nonce={nonce}></UtrechtIconChevronUp>
+    <p>{nonce}</p>
+  </body>
 }
